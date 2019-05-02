@@ -1,0 +1,41 @@
+{
+  "name": "eslint-formatter-complexity",
+  "version": "1.0.0",
+  "description": "Generates ordered list of most complex files from coverage report",
+  "main": "src/index.js",
+  "directories": {
+    "src": "src"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlennox/eslint-formatter-complexity.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslintformatter",
+    "eslint-formatter"
+  ],
+  "author": {
+    "name": "Mark Lennox",
+    "email": "mark@webpusher.ie",
+    "url": "https://www.webpusher.ie"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mlennox/eslint-formatter-complexity/issues"
+  },
+  "homepage": "https://github.com/mlennox/eslint-formatter-complexity#readme",
+  "dependencies": {
+    "eslint": "^5.16.0"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jest": "^22.4.1",
+    "prettier": "^1.16.4"
+  }
+}
