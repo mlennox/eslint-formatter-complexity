@@ -7,7 +7,8 @@
     "src": "src"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:sorted": "eslint  . -c ./src/eslint.complexity.config.js -f ./src/index.js || true"
   },
   "repository": {
     "type": "git",
@@ -32,10 +33,11 @@
     "eslint": "^5.16.0"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "eslint-config-prettier": "^4.0.0",
-    "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jest": "^22.4.1",
+    "eslint-plugin-prettier": "^3.0.1",
     "prettier": "^1.16.4"
   }
 }
