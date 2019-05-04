@@ -1,6 +1,9 @@
 /**
- * Note: this is to avoid using chalk
- * TODO: maybe I should just install chalk...
+ * Note: this is to avoid using chalk and associated dependencies
+ * These colours should work in most terminals
+ * please open an issue at
+ *
+ *    https://github.com/mlennox/eslint-formatter-complexity/issues
  */
 module.exports = {
   black: '\x1b[30m',
