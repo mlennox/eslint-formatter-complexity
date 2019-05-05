@@ -1,12 +1,23 @@
-# Use the latest 2.1 version of CircleCI pipeline processing engine, see https://circleci.com/docs/2.0/configuration-reference/
 version: 2.1
 
-orbs:
-  node: circleci/node@1.0.1
-
-workflows:
-  install:
-    - node/
-  test:
-    
+jobs:
+  install-n-test:
+      docker:
+        - image circleci/node:10.15.1
+      steps:
+        - checkout
+        - run:
+          name: install-packages
+          command: npm install
+        - run:
+          name: unit-tests-and-coverage
+          command: npm run test:ci
+        - store_artifacts:
+          path: ./coverage/lcov-report/
+          prefix: coverage
+        - store_artifacts:
+          path: ./testResults.json
+          prefix: tests
+        - store_test_results:
+          path: ./testResults.json
 

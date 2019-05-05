@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "test": "jest",
-    "lint:sorted": "eslint  . -c ./src/eslint.complexity.config.js -f ./src/index.js || true"
+    "test:ci": "jest --coverage --json --outputFile ./testResults.json"
   },
   "repository": {
     "type": "git",
