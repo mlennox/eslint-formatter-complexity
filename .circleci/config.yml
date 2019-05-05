@@ -3,21 +3,21 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image circleci/node:10.15.1
+      - image: circleci/node:10.15.1
     steps:
       - checkout
       - run:
-        name: install-packages
-        command: npm install
+          name: install-packages
+          command: npm install
       - run:
-        name: unit-tests-and-coverage
-        command: npm run test:ci
+          name: unit-tests-and-coverage
+          command: npm run test:ci
       - store_artifacts:
-        path: ./coverage/lcov-report/
-        prefix: coverage
+          path: ./coverage/lcov-report/
+          prefix: coverage
       - store_artifacts:
-        path: ./testResults.json
-        prefix: tests
+          path: ./testResults.json
+          prefix: tests
       - store_test_results:
-        path: ./testResults.json
+          path: ./testResults.json
 
