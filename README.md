@@ -1,3 +1,5 @@
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmlennox%2Feslint-formatter-complexity.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmlennox%2Feslint-formatter-complexity?ref=badge_shield)
+
 # eslint-formatter-complexity
 
 This is an eslint formatter that generates an ordered list of the most complex files in your codebase.
@@ -61,3 +63,9 @@ In theory, the first configuration option would allow you to sort the files by v
 ## Enhancement requests or filing bugs / issues
 
 Please open an issue on the github repo, marking it as a [bug](https://github.com/mlennox/eslint-formatter-complexity/labels/bug), [enhancement](https://github.com/mlennox/eslint-formatter-complexity/labels/enhancement), or you can ask a [question](https://github.com/mlennox/eslint-formatter-complexity/labels/question)
+
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmlennox%2Feslint-formatter-complexity.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmlennox%2Feslint-formatter-complexity?ref=badge_large)
+
