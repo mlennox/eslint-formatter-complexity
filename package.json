@@ -1,6 +1,6 @@
 {
   "name": "eslint-formatter-complexity",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generates ordered list of most complex files from coverage report",
   "main": "src/index.js",
   "directories": {
@@ -11,7 +11,7 @@
     "!src/**/*.test.js"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "lint:sorted": "eslint  . -c ./src/eslint.complexity.config.js -f ./src/index.js || true"
   },
   "repository": {
@@ -41,11 +41,13 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.7.1",
     "eslint-config-prettier": "^4.0.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jest": "^22.5.1",
     "eslint-plugin-prettier": "^3.0.1",
     "jest": "^24.7.1",
     "prettier": "^1.16.4"
-  }
+  },
+  "jest": {}
 }
