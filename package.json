@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "test": "jest",
-    "test:ci": "jest --coverage --json --outputFile ./testResults.json"
+    "test:ci": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "repository": {
     "type": "git",
@@ -49,7 +49,13 @@
     "eslint-plugin-jest": "^22.5.1",
     "eslint-plugin-prettier": "^3.0.1",
     "jest": "^24.7.1",
+    "jest-junit": "^6.4.0",
     "prettier": "^1.16.4"
   },
-  "jest": {}
+  "jest": {
+    "reporters": [
+      "default",
+      "jest-junit"
+    ]
+  }
 }
