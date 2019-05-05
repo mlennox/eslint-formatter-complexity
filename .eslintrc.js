@@ -34,7 +34,7 @@ module.exports = {
         "max-params": ["warn", 4],
         "max-statements": [
             "warn",
-            7
+            8
         ],
         "max-statements-per-line": [
             "warn",

@@ -13,7 +13,7 @@ jobs:
           name: unit-tests-and-coverage
           command: npm run test:ci
           environment:
-              JEST_JUNIT_OUTPUT: "reports/junit/js-test-results.xml"          
+              JEST_JUNIT_OUTPUT: "reports/junit/js-test-results.xml"
       - store_artifacts:
           path: ./coverage/lcov-report/
           prefix: coverage

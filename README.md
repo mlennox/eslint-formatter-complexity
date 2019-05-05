@@ -47,6 +47,12 @@ You can run the following command on the CLI
 npm run complex
 ```
 
+## Example output
+
+The output below is the result of running `npx eslint -f ./src/index.js .` in this repo.
+
+![](./ExampleOutput.png)
+
 ## What is it all about?
 
 ESlint provides a number of rules that measure the complexity of javascript code. This formatter uses the results of an eslint execution, taking the list of files that have violated complexity rules in some way, and ordering them depending on how many errors and/or warnings are generated for each file.
