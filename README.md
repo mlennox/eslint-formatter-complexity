@@ -47,17 +47,17 @@ You can run the following command on the CLI
 npm run complex
 ```
 
-## Example output
+## How does it work?
+
+The formatter receives the eslint results, finds the complexity metric related rules that have been broken (see below) filtering out any others, sorts the offending files in order according to how many errors and/or warnings were generated, and outputs the list to the console. This differs greatly from the standard eslint output which just lists the files and their broken rules as they are passed to it based on file structure.
+
+A typical output from the formatter is shown below.
 
 The output below is the result of running `npx eslint -f ./src/index.js .` in this repo.
 
 ![](./ExampleOutput.png)
 
-## What is it all about?
-
-ESlint provides a number of rules that measure the complexity of javascript code. This formatter uses the results of an eslint execution, taking the list of files that have violated complexity rules in some way, and ordering them depending on how many errors and/or warnings are generated for each file.
-
-You will need to configure eslint to check at least one of the following complexity rules.
+The `eslint-formatter-complexity` uses the count of violations of the rules listed below to rank each file. You will need to configure eslint to check _at least one_ of the following complexity rules, as the formatter does not provide the configuration to eslint.
 
 - [complexity](https://eslint.org/docs/rules/complexity)
 - [max-params](https://eslint.org/docs/rules/max-params)
@@ -95,7 +95,9 @@ An example rules section for `.eslintrc.js` is shown below - you should adjust t
 
 ### Cyclomatic complexity
 
-Any errors or warnings that are generated as a result of cyclomatic complexity - the eslint rule, `complexity` - are weighted with a higher importance, pushing any files
+Any errors or warnings that are generated as a result of cyclomatic complexity - the eslint rule, `complexity` - are weighted with a higher importance, pushing any files with cyclomatic complexity higher in the list. 
+
+The image above is generated from the example code files provided in the `example` folder. You can see that the file `a.notsobad.js` has 1 warning and 1 error and should therefore be listed above the file `c.cyclomatic.js` which has just one error. However, the error comes from cyclomatic complexity and is thus weighted more important resulting in the file appearing higher in the list.
 
 ## Configuration
 
