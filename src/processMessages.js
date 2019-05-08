@@ -6,7 +6,7 @@ const { rules } = require('./rules');
  * each error by ruleId
  */
 const groupMessages = messages => {
-  const grouped = [];
+  const grouped = {};
   messages.forEach(message => {
     if (message.ruleId in grouped) {
       grouped[message.ruleId].push(message);
@@ -24,15 +24,22 @@ const sortAndGroup = complexityResults =>
   complexityResults.sort(errorSorter).map(result => {
     const groupedMessages = groupMessages(result.messages);
     return {
-      file: result.filePath.replace(process.env.PWD || '', ''),
+      filePath: result.filePath,
+      relativeFilePath: result.filePath.replace(process.env.PWD || '', ''),
       errorCount: calculateRuleViolations(groupedMessages, 2),
       warningCount: calculateRuleViolations(groupedMessages, 1),
       messages: groupedMessages,
     };
   });
 
+/**
+ * Counts the rule violations, matching the severity, in the groupedMessages
+ * @param {object} groupedMessages
+ * @param {int} severity
+ */
 const calculateRuleViolations = (groupedMessages, severity) => {
   let count = 0;
+  // TODO : replace this with reduce
   Object.keys(groupedMessages).forEach(ruleId => {
     groupedMessages[ruleId].forEach(message => {
       count += severity === message.severity ? 1 : 0;
@@ -46,17 +53,13 @@ const calculateRuleViolations = (groupedMessages, severity) => {
  * @param {*} results
  */
 const getOnlyComplexityResults = results => {
-  return (
-    results
-      // remove any results that reported no issues
-      .filter(result => result.errorCount > 0 || result.warningCount > 0)
-      .map(result => {
-        // remove any results that are a result of a rule not in our list of complexity rules
-        const complexityMessages = result.messages.filter(message => rules.indexOf(message.ruleId) > -1);
-        return remapResult(result, complexityMessages);
-      })
-      .filter(result => result.messages.length > 0)
-  );
+  return results
+    .map(result => {
+      // remove any results that are a result of a rule not in our list of complexity rules
+      const complexityMessages = result.messages.filter(message => rules.indexOf(message.ruleId) > -1);
+      return remapResult(result, complexityMessages);
+    })
+    .filter(result => result.messages.length > 0);
 };
 
 const remapResult = (result, complexityMessages) => {
@@ -73,4 +76,5 @@ module.exports = {
   groupMessages,
   sortAndGroup,
   getOnlyComplexityResults,
+  remapResult,
 };

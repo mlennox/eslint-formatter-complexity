@@ -1,6 +1,7 @@
 const col = require('../console.colours');
 
 module.exports = complexityResults => {
+  console.log(complexityResults);
   return complexityResults.map(result => `\n${renderHeadline(result)}${renderMessages(result.messages)}`).join('\n');
 };
 
@@ -13,8 +14,8 @@ module.exports = complexityResults => {
  * @param {*} result
  */
 const renderHeadline = result => {
-  return `${col.boldBlack} ${result.file}
-${col.boldBlack} ${'='.repeat(result.file.length)}
+  return `${col.boldBlack} ${result.relativeFilePath}
+${col.boldBlack} ${'='.repeat(result.relativeFilePath.length)}
 ${col.boldRed} errors: ${col.red} ${result.errorCount}
 ${col.boldYellow} warnings: ${col.yellow} ${result.warningCount} \n`;
 };

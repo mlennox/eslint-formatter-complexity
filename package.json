@@ -1,10 +1,10 @@
 {
   "name": "eslint-formatter-complexity",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "engines": {
-    "node": ">=10.15.0"
+    "node": ">=10.0.0"
   },
-  "description": "Generates ordered list of most complex files from coverage report",
+  "description": "Generates sorted list of most complex files in codebase",
   "main": "src/index.js",
   "directories": {
     "lib": "src/"
@@ -37,7 +37,8 @@
   },
   "homepage": "https://github.com/mlennox/eslint-formatter-complexity#readme",
   "dependencies": {
-    "eslint": "^5.16.0"
+    "eslint": "^5.16.0",
+    "minimist": "^1.2.0"
   },
   "peerDependencies": {
     "eslint": ">=5.0.0"
