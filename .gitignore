@@ -1,3 +1,10 @@
+# JSON complexity results
+complexity/
+
+# test results
+testResults.json
+junit.xml
+
 # Logs
 logs
 *.log
@@ -24,8 +31,7 @@ coverage
 # nyc test coverage
 .nyc_output
 
-# JSON test results
-testResults.json
+
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt

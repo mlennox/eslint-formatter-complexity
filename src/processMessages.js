@@ -6,7 +6,7 @@ const { rules } = require('./rules');
  * each error by ruleId
  */
 const groupMessages = messages => {
-  const grouped = [];
+  const grouped = {};
   messages.forEach(message => {
     if (message.ruleId in grouped) {
       grouped[message.ruleId].push(message);
@@ -24,15 +24,22 @@ const sortAndGroup = complexityResults =>
   complexityResults.sort(errorSorter).map(result => {
     const groupedMessages = groupMessages(result.messages);
     return {
-      file: result.filePath.replace(process.env.PWD || '', ''),
+      filePath: result.filePath,
+      relativeFilePath: result.filePath.replace(process.env.PWD || '', ''),
       errorCount: calculateRuleViolations(groupedMessages, 2),
       warningCount: calculateRuleViolations(groupedMessages, 1),
       messages: groupedMessages,
     };
   });
 
+/**
+ * Counts the rule violations, matching the severity, in the groupedMessages
+ * @param {object} groupedMessages
+ * @param {int} severity
+ */
 const calculateRuleViolations = (groupedMessages, severity) => {
   let count = 0;
+  // TODO : replace this with reduce
   Object.keys(groupedMessages).forEach(ruleId => {
     groupedMessages[ruleId].forEach(message => {
       count += severity === message.severity ? 1 : 0;
@@ -73,4 +80,5 @@ module.exports = {
   groupMessages,
   sortAndGroup,
   getOnlyComplexityResults,
+  remapResult,
 };

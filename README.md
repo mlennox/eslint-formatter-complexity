@@ -57,6 +57,8 @@ The output below is the result of running `npx eslint -f ./src/index.js .` in th
 
 ![](./ExampleOutput.png)
 
+The output is also saved to a JSON file at `./complexity/report.json`
+
 The `eslint-formatter-complexity` uses the count of violations of the rules listed below to rank each file. You will need to configure eslint to check _at least one_ of the following complexity rules, as the formatter does not provide the configuration to eslint.
 
 - [complexity](https://eslint.org/docs/rules/complexity)
