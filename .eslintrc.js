@@ -4,6 +4,7 @@ module.exports = {
     "browser": true,
     "es6": true,
     "jest/globals": true,
+    "jest": true,
     "amd": true,
     "node": true,
   },

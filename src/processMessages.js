@@ -53,17 +53,13 @@ const calculateRuleViolations = (groupedMessages, severity) => {
  * @param {*} results
  */
 const getOnlyComplexityResults = results => {
-  return (
-    results
-      // remove any results that reported no issues
-      .filter(result => result.errorCount > 0 || result.warningCount > 0)
-      .map(result => {
-        // remove any results that are a result of a rule not in our list of complexity rules
-        const complexityMessages = result.messages.filter(message => rules.indexOf(message.ruleId) > -1);
-        return remapResult(result, complexityMessages);
-      })
-      .filter(result => result.messages.length > 0)
-  );
+  return results
+    .map(result => {
+      // remove any results that are a result of a rule not in our list of complexity rules
+      const complexityMessages = result.messages.filter(message => rules.indexOf(message.ruleId) > -1);
+      return remapResult(result, complexityMessages);
+    })
+    .filter(result => result.messages.length > 0);
 };
 
 const remapResult = (result, complexityMessages) => {
